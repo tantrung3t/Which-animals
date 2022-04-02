@@ -1,0 +1,61 @@
+ .PageDetailScreen_body{
+     display: flex;
+     justify-content: center;
+     width: calc(100% - 380px);
+     margin: auto;
+ }
+
+ .PageDetailScreen_grid_left{
+    width: 60%;
+    height: 1000px
+}
+
+.PageDetailScreen_grid_right{
+    border: 1px solid #91c2cc;
+    width: 40%;
+    height: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.PageDetailScreen_image{
+    margin: 10px;
+    width: 60%;
+}
+
+.PageDetailScreen_list_image{
+    display: inline-block;
+    margin: 10px;
+    height: 90px;
+    width: 90%;
+    background-color: #FCDDEC;
+}
+
+.PageDetailScreen_list_image .PageDetailScreen_image{
+    margin: 10px;
+    height: 70px;
+    width: 20%;
+    background-color: #FCDDEC;
+}
+
+.PageDetailScreen_name_science{
+    display: inline-block;
+    width: 70%;
+    background-color: #bebebe;
+    font-size: 18px;
+    font-family: Roboto;
+}
+.PageDetailScreen_class_science{
+    display: inline-block;
+    width: 70%;
+    background-color: #060404;
+    font-family: Roboto;
+    font-size: 18px;
+    color: #f7f7f7;
+}
+.PageDetailScreen_title{
+    margin: auto;
+    font-family: Roboto;
+    font-size: 18px;
+}
+
