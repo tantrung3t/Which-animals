@@ -215,6 +215,11 @@ main {
 
 }
 
+.search-wrap {
+  width: 800px;
+  margin: 0 auto;
+}
+
 .m-2 {
   margin: 4px;
 }
