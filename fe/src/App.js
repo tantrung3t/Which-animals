@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link, useParams, useRouteMatch 
 import SearchForm from './components/SearchForm';
 import HomeScreen from './screens/HomeScreen';
 import PageDetailScreen from './screens/PageDetailScreen';
+import SearchScreen from './screens/SearchScreen';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       </header>
       <main>
         <Route path='/' exact component={HomeScreen} />
-        <Route path='/detail' component={PageDetailScreen} /> 
+        <Route path='/detail' component={PageDetailScreen} />
+        <Route path='/search/:id' component={Search} />
       </main>
       {/* <footer>
         <div>
@@ -27,6 +29,13 @@ function App() {
 
 
   );
+}
+
+function Search(){
+  let {id} = useParams();
+  return (
+    <SearchScreen id={id}/>
+  )
 }
 
 export default App;
