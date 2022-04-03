@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter as Router, Switch, Route, Link, useParams, useRouteMatch } from 'react-router-dom'
+import { BrowserRouter as Router,Route, useParams} from 'react-router-dom'
 
 import SearchForm from './components/SearchForm';
 import HomeScreen from './screens/HomeScreen';

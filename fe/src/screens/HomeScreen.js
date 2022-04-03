@@ -10,6 +10,7 @@ export default function HomeScreen() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
+        console.log("goi api")
         loadData()
     }, [])
 

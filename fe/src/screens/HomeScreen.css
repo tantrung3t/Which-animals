@@ -1,8 +1,7 @@
  .HomeScreen_body{
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     width: calc(100% - 380px);
     margin: auto;
-    
  }

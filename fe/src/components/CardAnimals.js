@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './CardAnimals.css'
 
@@ -6,17 +6,16 @@ import './CardAnimals.css'
 export default function CardAnimals(props) {
     const [loading, setLoading] = useState('loading')
     const [hidden, setHidden] = useState('hidden')
-    const [src, setSrc] = useState('');
-    const [title, setTitle] = useState('');
-    const [img, setImg] = useState('');
+    const [card__info, setCard__info] = useState('card__info')
 
-    setTimeout(() => {
-        setSrc(props.src)
-        setTitle(props.name)
-        setLoading('')
-        setHidden('')
-    }, 4000)
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading('')
+            setCard__info('show_name_animals')
+            setHidden('')
 
+        }, 2500)
+    }, [])
     return (
 
         // <div className="CardAnimals_card">
@@ -30,10 +29,10 @@ export default function CardAnimals(props) {
 
         <div className="card">
             <div className={"card__img " + loading}>
-            <img className={hidden} src={src}/>
+            <img className={hidden} src={props.src} alt="image_animals"/>
             </div>
-            <div className="card__info">
-                <p className={loading}>{title}</p>
+            <div className={card__info}>
+                <p className={loading}>{props.name}</p>
             </div>
         </div>
     )
