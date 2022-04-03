@@ -52,6 +52,91 @@ main {
   background-color: #f7f7f7;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex.center {
+  justify-content: center;
+  align-items: center;
+}
+.flex.beetween {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.row {
+  display: flex;  
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.row.center {
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.row.top {
+  align-items: flex-start !important;
+}
+
+.row.left {
+  align-items: center !important;
+  justify-content: left !important;
+  flex-wrap: wrap !important;
+}
+
+.row.flex-column {
+  flex-direction: column;
+}
+
+.row-cols-auto > * {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.row-cols-1 > * {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.row-cols-2 > * {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.row-cols-3 > * {
+  flex: 0 0 auto;
+  width: 33.3333333333%;
+}
+
+.row-cols-4 > * {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+.row-cols-5 > * {
+  flex: 0 0 auto;
+  width: 20%;
+}
+
+.row-cols-6 > * {
+  flex: 0 0 auto;
+  width: 16.6666666667%;
+}
+
+.row-cols-7 > * {
+  flex: 0 0 auto;
+  width: 8.3333333334%;
+}
+
+
 .header__navbar {
   position: fixed;
   display: flex;
@@ -113,4 +198,23 @@ main {
   text-align: center;
   font-size: 18px;
   margin: 0px;
+}
+
+.search-result {
+  display: flex;
+  justify-content: flex-start;
+  margin: 8px 0;
+}
+.search-img {
+  width: 100px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 8px;
+}
+.search-name {
+
+}
+
+.m-2 {
+  margin: 4px;
 }
