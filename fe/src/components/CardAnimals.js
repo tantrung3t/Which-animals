@@ -1,11 +1,40 @@
+import React, { useState } from 'react';
+
 import './CardAnimals.css'
 
 
-export default function CardAnimals(){
-    return(
-        <div className="CardAnimals_card">
-            <img alt="animals"className="CardAnimals_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mimus_polyglottus1_cropped.png/420px-Mimus_polyglottus1_cropped.png" />
-            <p>Chim nhại</p>
+export default function CardAnimals(props) {
+    const [loading, setLoading] = useState('loading')
+    const [hidden, setHidden] = useState('hidden')
+    const [src, setSrc] = useState('');
+    const [title, setTitle] = useState('');
+    const [img, setImg] = useState('');
+
+    setTimeout(() => {
+        setSrc(props.src)
+        setTitle(props.name)
+        setLoading('')
+        setHidden('')
+    }, 4000)
+
+    return (
+
+        // <div className="CardAnimals_card">
+        //     
+        //     <div className="card_info">
+        //     <p className={loading}>{title}</p>
+        //     </div>
+        // </div>
+
+
+
+        <div className="card">
+            <div className={"card__img " + loading}>
+            <img className={hidden} src={src}/>
+            </div>
+            <div className="card__info">
+                <p className={loading}>{title}</p>
+            </div>
         </div>
     )
 }

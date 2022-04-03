@@ -18,11 +18,11 @@ function App() {
         <Route path='/' exact component={HomeScreen} />
         <Route path='/detail' component={PageDetailScreen} /> 
       </main>
-      <footer>
+      {/* <footer>
         <div>
           <p className='footer_p'>Động vật quanh ta @2022</p>
         </div>
-      </footer>
+      </footer> */}
     </Router>
 
 
