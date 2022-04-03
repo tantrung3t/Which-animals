@@ -14,6 +14,7 @@ export default function SearchForm() {
 
 
     return (
+
         <div className="header__search">
             <form className="header__search-form" onSubmit={handleSubmit}>
                 <i className="ti-search header__search-icon"></i>
@@ -25,6 +26,7 @@ export default function SearchForm() {
                     placeholder="Nhập tên con vât muốn tìm"
                 />
                 <button className="btn-search"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+
             </form>
         </div>
     );

@@ -35,7 +35,7 @@ export default function SearchScreen(props) {
   console.log(animals)
 
   return (
-    <div className='container'>
+    <div className='container search-wrap'>
       <div>Kết quả tìm kiếm từ:  {props.id}</div>
       <div className='row row-cols-2'>
         {
