@@ -36,15 +36,15 @@ export default function SearchScreen(props) {
 
   return (
     <div className='container search-wrap'>
-      <div>Kết quả tìm kiếm từ:  {props.id}</div>
+      <div className='my-5'>Kết quả tìm kiếm từ:  {props.id}</div>
       <div className='row row-cols-2'>
         {
           animals.map((animal, index) =>
             <div className='search-result' key={index}>
               <img src={animal.img} alt='img' className='search-img' />
               <div>
-                <div className='search-name'> {animal.name} </div>
-                <div className='search-name'> {animal.nameEng} </div>
+                <div className='search-name' style={{fontSize: "36px"}}> {animal.name} </div>
+                <div className='search-name' style={{fontSize: "24px"}}> {animal.nameEng} </div>
               </div>
             </div>
           )
