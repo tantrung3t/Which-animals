@@ -21,7 +21,6 @@ export default function PageDetailScreen(props) {
     useEffect(() => {
         setInfo(data)
         setImage(data.anhphu)
-        console.log(info)
     },[])
     return (
         <div className="PageDetailScreen_body">
@@ -43,7 +42,7 @@ export default function PageDetailScreen(props) {
                 <div className="PageDetailScreen_list_image">
                     {
                         image.map((anh, index) => 
-                         <img alt="animals" className="PageDetailScreen_image" src={anh} />
+                         <img key={index} alt="animals" className="PageDetailScreen_image" src={anh} />
                         )
                     }
                     {/* <img alt="animals" className="PageDetailScreen_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mimus_polyglottus1_cropped.png/420px-Mimus_polyglottus1_cropped.png" />
