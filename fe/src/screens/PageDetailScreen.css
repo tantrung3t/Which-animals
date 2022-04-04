@@ -12,10 +12,23 @@
     font-size: 16px;
 }
 
-.PageDetailScreen_grid_left > div {
-    padding: 0 16px;
-    border-left: 10px solid #c4c4c4;
 
+.PageDetailScreen_grid_left > h2 {
+    color: #5D5FEF;
+}
+
+.PageDetailScreen_grid_left > p {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #7879F1;
+    font-weight: 500;
+    margin-left:  26px;
+}
+
+.PageDetailScreen_grid_left > div {
+    padding: 0 16px 16px;
+    border-left: 10px solid #c4c4c4;
+    margin-bottom: 32px;
 }
 
 .PageDetailScreen_grid_right{
@@ -67,4 +80,5 @@
     font-size: 18px;
     margin-left: 64px;
 }
+
 
