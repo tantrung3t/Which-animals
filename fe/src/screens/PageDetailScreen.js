@@ -26,8 +26,9 @@ export default function PageDetailScreen(props) {
 
     useEffect(() => {
         setInfo(data)
+        setImage(data.anhphu)
+        console.log(info)
     },[])
-console.log(info)
     return (
         <div className="PageDetailScreen_body">
             <div className="PageDetailScreen_grid_left">
