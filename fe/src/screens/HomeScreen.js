@@ -10,7 +10,6 @@ export default function HomeScreen() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        console.log("goi api")
         loadData()
     }, [])
 
@@ -27,8 +26,9 @@ export default function HomeScreen() {
         let element = data.map((item, index) => {
             return <CardAnimal
                 key={index}
-                src={item.src}
-                name={item.name}
+                id={item.id}
+                src={item.image1}
+                name={item.ten}
             />
         })
         return element

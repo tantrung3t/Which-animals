@@ -212,6 +212,7 @@ main {
   justify-content: flex-start;
   margin: 8px -8px;
   border: 1px solid #f6f6f6;
+  text-decoration: none;
 }
 .search-img {
   width: 121px;

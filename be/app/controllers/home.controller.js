@@ -1,29 +1,19 @@
+var home  = require('../models/home.model');
+
 exports.home_list = function(req, res) {
-    var data = [
-        {
-            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Accipiter_gentilis_f_juv_captive.jpg/420px-Accipiter_gentilis_f_juv_captive.jpg',
-            name: 'Chim diều hâu',
-        },
-        {
-            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Accipiter_gentilis_f_juv_captive.jpg/420px-Accipiter_gentilis_f_juv_captive.jpg',
-            name: 'Chim diều hâu',
-        },
-        {
-            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Accipiter_gentilis_f_juv_captive.jpg/420px-Accipiter_gentilis_f_juv_captive.jpg',
-            name: 'Chim diều hâu',
-        },
-        {
-            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Accipiter_gentilis_f_juv_captive.jpg/420px-Accipiter_gentilis_f_juv_captive.jpg',
-            name: 'Chim diều hâu',
-        },
-        {
-            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Accipiter_gentilis_f_juv_captive.jpg/420px-Accipiter_gentilis_f_juv_captive.jpg',
-            name: 'Chim diều hâu',
-        },
-        {
-            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Accipiter_gentilis_f_juv_captive.jpg/420px-Accipiter_gentilis_f_juv_captive.jpg',
-            name: 'Chim diều hâu',
-        }
-    ]
-    res.send(data)
+    home.home_list(function(data){
+        res.send(data);
+    }) 
+}
+
+exports.home_id = function(req, res) {
+    home.home_id(req.params.id, function(data){
+        res.send(data);
+    }) 
+}
+
+exports.home_search = function(req, res) {
+    home.home_search(req.body.search, function(data){
+        res.send(data);
+    }) 
 }

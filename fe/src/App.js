@@ -16,7 +16,7 @@ function App() {
       </header>
       <main>
         <Route path='/' exact component={HomeScreen} />
-        <Route path='/detail' component={PageDetailScreen} />
+        <Route path='/detail/:id' component={PageDetail} />
         <Route path='/search/:id' component={Search} />
       </main>
       {/* <footer>
@@ -28,6 +28,13 @@ function App() {
 
 
   );
+}
+
+function PageDetail(){
+  let {id} = useParams();
+  return(
+    <PageDetailScreen id={id} />
+  )
 }
 
 function Search(){

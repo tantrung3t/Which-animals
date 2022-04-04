@@ -1,38 +1,33 @@
 import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 export default function SearchScreen(props) {
   const [animals, setAnimals] = useState([])
 
-
   useEffect(() => {
-    const data = [
-      {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Mimus_polyglottus1_cropped.png',
-        name: "chim",
-        nameEng: "bird"
-      },
-      {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Mimus_polyglottus1_cropped.png',
-        name: "chim",
-        nameEng: "bird"
-      },
-      {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Mimus_polyglottus1_cropped.png',
-        name: "chim",
-        nameEng: "bird"
-      },
-      {
-        img: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Mimus_polyglottus1_cropped.png',
-        name: "chim",
-        nameEng: "bird"
-      }
-    ]
 
-    setAnimals(data)
-    
-  }, [])
+    loadDataSearch()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.id])
 
-  console.log(animals)
+  const loadDataSearch = async() => {
+    const data = {
+      "search" : props.id
+    }
+    await axios({
+      method: 'post',
+      url: 'http://localhost:3003/api/home/search',
+      data: data
+    })
+      .then(function (response) {
+        setAnimals(response.data);
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   return (
     <div className='container search-wrap'>
@@ -40,13 +35,13 @@ export default function SearchScreen(props) {
       <div className='row row-cols-2'>
         {
           animals.map((animal, index) =>
-            <div className='search-result' key={index}>
-              <img src={animal.img} alt='img' className='search-img' />
+            <Link to={"/detail/" + animal.id} className='search-result' key={index}>
+              <img src={animal.image1} alt='img' className='search-img' />
               <div>
-                <div className='search-name' style={{fontSize: "36px"}}> {animal.name} </div>
-                <div className='search-name' style={{fontSize: "24px"}}> {animal.nameEng} </div>
+                <div className='search-name' style={{fontSize: "36px"}}> {animal.ten} </div>
+                <div className='search-name' style={{fontSize: "24px"}}> {animal.tenkhoahoc} </div>
               </div>
-            </div>
+            </Link>
           )
         }
       </div>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom'
 import './CardAnimals.css'
 
+var flag = 1;
 
 export default function CardAnimals(props) {
     const [loading, setLoading] = useState('loading')
@@ -9,12 +10,19 @@ export default function CardAnimals(props) {
     const [card__info, setCard__info] = useState('card__info')
 
     useEffect(() => {
-        setTimeout(() => {
+        if (flag === 1) {
+            setTimeout(() => {
+                setLoading('')
+                setCard__info('show_name_animals')
+                setHidden('')
+                flag = 0
+            }, 1500)
+        }
+        else {
             setLoading('')
             setCard__info('show_name_animals')
             setHidden('')
-
-        }, 2500)
+        }
     }, [])
     return (
 
@@ -27,13 +35,13 @@ export default function CardAnimals(props) {
 
 
 
-        <div className="card">
+        <Link to={"/detail/" + props.id} className="card">
             <div className={"card__img " + loading}>
-            <img className={hidden} src={props.src} alt="image_animals"/>
+                <img className={hidden} src={props.src} alt="image_animals" />
             </div>
             <div className={card__info}>
                 <p className={loading}>{props.name}</p>
             </div>
-        </div>
+        </Link>
     )
 }
