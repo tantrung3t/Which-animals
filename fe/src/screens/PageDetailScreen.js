@@ -15,7 +15,14 @@ export default function PageDetailScreen(props) {
     }
                     
 
-    const [info, setInfo] = useState({})
+    const [info, setInfo] = useState({
+        ten: "",
+        tenkhoahoc: "",
+        anhchinh: "",
+        anhphu: [],
+        ddhinhthai: "",
+        ddsinhthai:""
+    })
 
     useEffect(() => {
         setInfo(data)
@@ -41,7 +48,7 @@ console.log(info)
                 <div className="PageDetailScreen_list_image">
                     {
                         info.anhphu.map((anh, index) => 
-                         <img alt="animals" className="PageDetailScreen_image" src={anh} />
+                         <img alt="animals" key={index} className="PageDetailScreen_image" src={anh} />
                         )
                     }
                     {/* <img alt="animals" className="PageDetailScreen_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mimus_polyglottus1_cropped.png/420px-Mimus_polyglottus1_cropped.png" />
