@@ -15,12 +15,14 @@ export default function PageDetailScreen(props) {
     }
                     
 
-    const [info, setInfo] = useState({})
+    const [info, setInfo] = useState([])
+    const [image, setImage] = useState([])
 
     useEffect(() => {
         setInfo(data)
+        setImage(data.anhphu)
+        console.log(info)
     },[])
-console.log(info)
     return (
         <div className="PageDetailScreen_body">
             <div className="PageDetailScreen_grid_left">
@@ -40,7 +42,7 @@ console.log(info)
                 </div>
                 <div className="PageDetailScreen_list_image">
                     {
-                        info.anhphu.map((anh, index) => 
+                        image.map((anh, index) => 
                          <img alt="animals" className="PageDetailScreen_image" src={anh} />
                         )
                     }
