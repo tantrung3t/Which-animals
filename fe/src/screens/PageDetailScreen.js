@@ -5,6 +5,7 @@ import axios from 'axios'
 
 export default function PageDetailScreen(props) {
 
+<<<<<<< HEAD
     const [image1, setImage1] = useState("")
     const [image2, setImage2] = useState("")
     const [image3, setImage3] = useState("")
@@ -26,6 +27,9 @@ export default function PageDetailScreen(props) {
         lop_ten: "",
         bo_ten: "",
     });
+=======
+    const [info, setInfo] = useState({});
+>>>>>>> e5f6963ce9b2b10991c3e1664f5988ec4c69296e
 
     useEffect(() => {
         loadData()
@@ -36,7 +40,7 @@ export default function PageDetailScreen(props) {
     const loadData = async () => {
         await axios.get('http://localhost:3003/api/home/list/' + props.id)
             .then(response => {
-                setInfo(response.data[0])
+                setInfo(...info, response.data[0])
                 console.log(response.data[0])
                 setImage1(response.data[0].image1)
                 setImage2(response.data[0].image2)
