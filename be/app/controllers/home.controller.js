@@ -5,6 +5,21 @@ exports.home_list = function(req, res) {
         res.send(data);
     }) 
 }
+exports.nganh_list = function(req, res) {
+    home.nganh_list(req.params.id, function(data){
+        res.send(data);
+    }) 
+}
+exports.bo_list = function(req, res) {
+    home.bo_list(req.params.id, function(data){
+        res.send(data);
+    }) 
+}
+exports.lop_list = function(req, res) {
+    home.lop_list(req.params.id, function(data){
+        res.send(data);
+    }) 
+}
 
 exports.home_id = function(req, res) {
     home.home_id(req.params.id, function(data){
