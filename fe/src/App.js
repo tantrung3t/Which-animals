@@ -9,6 +9,8 @@ import SearchScreen from './screens/SearchScreen';
 import NganhScreen from './screens/NganhScreen';
 import BoScreen from './screens/BoScreen';
 import LopScreen from './screens/LopScreen';
+import AdminScreen from './screens/AdminScreen';
+import SigninScreen from './screens/SigninScreen';
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
         <Route path='/lop/:id' component={Lop} />
         <Route path='/bo/:id' component={Bo} />
         <Route path='/search/:id' component={Search} />
+        <Route path='/admin' render={() => {
+            return (localStorage.getItem('user') === "admin") ? <AdminScreen /> : <SigninScreen />
+          }}/>
         
       </main>
       {/* <footer>

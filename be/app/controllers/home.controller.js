@@ -32,3 +32,40 @@ exports.home_search = function(req, res) {
         res.send(data);
     }) 
 }
+exports.nganh = function(req, res) {
+    home.nganh(function(data){
+        res.send(data);
+    }) 
+}
+exports.lop = function(req, res) {
+    home.lop(function(data){
+        res.send(data);
+    }) 
+}
+exports.bo = function(req, res) {
+    home.bo(function(data){
+        res.send(data);
+    }) 
+}
+
+exports.admin = function(req, res) {
+
+    if(req.body.username === 'admin' && req.body.password === 'admin'){
+        res.send({
+            status: '200',
+            message: 'Login successful',
+        })
+    }
+    else{
+        res.send({
+            status: '400',
+            message: 'Login fail',
+        })
+    }
+}
+
+exports.animals = function(req, res) {
+    home.animals(req.body, function(data){
+        res.send(data);
+    })
+}

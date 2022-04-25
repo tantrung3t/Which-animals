@@ -3,8 +3,42 @@ const db = require('../common/connect');
 const home = function () {
 }
 
+home.nganh = function (result) {
+    var strquery = "select * from nganh"
+    db.query(strquery, function (err, data) {
+        if (err) {
+            result(null);
+        }
+        else {
+            result(data);
+        }
+    })
+}
+home.lop = function (result) {
+    var strquery = "select * from lop"
+    db.query(strquery, function (err, data) {
+        if (err) {
+            result(null);
+        }
+        else {
+            result(data);
+        }
+    })
+}
+home.bo = function (result) {
+    var strquery = "select * from bo"
+    db.query(strquery, function (err, data) {
+        if (err) {
+            result(null);
+        }
+        else {
+            result(data);
+        }
+    })
+}
+
 home.home_list = function (result) {
-    var strquery = "select id, ten, image1 from animals"
+    var strquery = "select id, ten, tenkhoahoc, image1 from animals"
     db.query(strquery, function (err, data) {
         if (err) {
             result(null);
@@ -69,6 +103,24 @@ home.home_search = function (search, result) {
         }
         else {
             result(data);
+        }
+    })
+}
+
+home.animals = function (body, result) {
+    var strquery = "INSERT INTO `animals`(`ten`, `tenkhoahoc`, `nganh_id`, `lop_id`, `bo_id`, `hinhthai`, `sinhthai`, `image1`, `image2`, `image3`) VALUES ('"+ body.ten +"','"+ body.tenkhoahoc +"','"+ body.nganh_id +"','"+ body.lop_id +"','"+ body.bo_id +"','"+ body.hinhthai +"','"+ body.sinhthai +"','"+ body.image1 +"','"+ body.image2 +"','"+ body.image3 +"')"
+    db.query(strquery, function (err, data) {
+        if (err) {
+            result({
+                status: '400',
+                message: "Err"
+            });
+        }
+        else {
+            result({
+                status: '200',
+                message: "Success"
+            });
         }
     })
 }
