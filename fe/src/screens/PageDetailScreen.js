@@ -61,17 +61,16 @@ export default function PageDetailScreen(props) {
         }
     }  
 
+    console.log(info.sinhthai)
     return (
         <div className="PageDetailScreen_body">
             <div className="PageDetailScreen_grid_left">
                 <h2> {info.ten} </h2>
                 <p>Đặc điểm hình thái:</p>
-                <div>
-                    {info.hinhthai}
+                <div dangerouslySetInnerHTML={{ __html: info.hinhthai }}>
                 </div>
                 <p>Đặc điểm sinh thái:</p>
-                <div>
-                    {info.sinhthai}
+                <div dangerouslySetInnerHTML={{ __html: info.sinhthai }}>
                 </div>
             </div>
             <div className="PageDetailScreen_grid_right">

@@ -324,10 +324,14 @@ export default function AdminProduct() {
     }
     const close_modal = () => {
         loadData_products();
+        clear_all()
         setHide("modal hide");
     }
     const exit_modal = (e) => {
-        if (e.target == e.currentTarget) close_modal();
+        if (e.target === e.currentTarget) {
+            clear_all()
+            close_modal()
+        };
     }
     const clear_all = () => {
         setHinhthai("");
@@ -418,9 +422,9 @@ export default function AdminProduct() {
         event.preventDefault();
         const dataSubmit = new FormData(event.currentTarget);
 
-        var url1 = "test"
-        var url2 = "test"
-        var url3 = "test"
+        var url1 = ""
+        var url2 = ""
+        var url3 = ""
 
         await axios.post('http://localhost:3003/image',
             formData1, {
@@ -457,32 +461,49 @@ export default function AdminProduct() {
             })
 
         const dataSend = {
-            "tendongvat": dataSubmit.get('tendongvat'),
+            "ten": dataSubmit.get('tendongvat'),
             "tenkhoahoc": dataSubmit.get('tenkhoahoc'),
             "nganh_id": dataSubmit.get('nganh'),
             "lop_id": dataSubmit.get('lop'),
             "bo_id": dataSubmit.get('bo'),
             "hinhthai": hinhthai,
-            "chuanloai": chuanloai,
-            "image1": url1,
-            "image2": url2,
-            "image3": url3
+            "sinhthai": chuanloai,
+            "image1": "http://localhost:3003" + url1,
+            "image2": "http://localhost:3003" + url2,
+            "image3": "http://localhost:3003" + url3
         }
 
         console.log(dataSend)
 
-        await axios({
-            method: 'post',
-            url: 'http://localhost:3003/api/animals',
-            data: dataSend
-        })
-            .then(function (response) {
-                if(response.data.status === '200') alert('Thêm thành công')
-                else alert('Thêm thất bại')
+        const check = () => {
+            if(dataSend.ten === "") return false
+            if(dataSend.tenkhoahoc === "") return false
+            if(dataSend.hinhthai === "") return false
+            if(dataSend.sinhthai === "") return false
+            if(dataSend.image1 === "http://localhost:3003") return false
+            if(dataSend.image2 === "http://localhost:3003") return false
+            if(dataSend.image3 === "http://localhost:3003") return false
+            return true
+        }
+        
+
+        if(!check()) {
+            alert("Không được để trống các trường!")
+        }
+        else{
+            await axios({
+                method: 'post',
+                url: 'http://localhost:3003/api/animals',
+                data: dataSend
             })
-            .catch(function (err) {
-                console.log(err)
-            })
+                .then(function (response) {
+                    if(response.data.status === '200') alert('Thêm thành công')
+                    else alert('Thêm thất bại')
+                })
+                .catch(function (err) {
+                    console.log(err)
+                })
+        }
 
     }
 
@@ -520,22 +541,21 @@ export default function AdminProduct() {
             <div className={hide} onClick={exit_modal}>
                 <div className="modal__inner">
                     <div className="modal__header">
-                        <p>{titleModal}</p>
+                        <div className="modal__title">{titleModal}</div>
                         <FontAwesomeIcon icon={faXmarkCircle} fontSize={35} onClick={close_modal} />
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="modal__body">
-                            <div style={modalStyleImage}>
-                                <div style={modalStyleTen}>
+                            <div style={modalStyle}>
+                                <div >
                                     <div>Tên động vật</div>
-                                    <input id="tendongvat" name="tendongvat" className="input-add-product" type="text" placeholder="Nhập tên động vật" />
+                                    <input id="tendongvat" name="tendongvat" className="input-name-product" type="text" placeholder="Nhập tên động vật" />
                                 </div>
                                 <div>
                                     <div>Tên khoa học</div>
-                                    <input id="tenkhoahoc" name="tenkhoahoc" className="input-add-product" type="text" placeholder="Nhập tên khoa học" />
+                                    <input id="tenkhoahoc" name="tenkhoahoc" className="input-name-product" type="text" placeholder="Nhập tên khoa học" />
                                 </div>
-                            </div>
-                            <div style={modalStyle}>
+                            
                                 <div>
                                     <div>Thuộc ngành</div>
                                     <select id="nganh" name="nganh" className="input-add-product" >
@@ -556,7 +576,7 @@ export default function AdminProduct() {
                                 </div>
                             </div>
                             <div style={modalStyle2}>
-                                <div style={{ width: '450px', height: '290px' }}>
+                                <div style={{ width: '600px', height: '290px' }}>
                                     <div>Đặc điểm hình thái</div>
 
                                     <div>
@@ -585,7 +605,7 @@ export default function AdminProduct() {
                                         />
                                     </div>
                                 </div>
-                                <div style={{ width: '450px', height: '290px' }}>
+                                <div style={{ width: '600px', height: '290px' }}>
                                     <div>Đặc điểm chuẩn loại</div>
 
                                     <div>
@@ -772,7 +792,7 @@ function Item(props) {
             </div>
             <div style={divStyle4}>
                 <div>
-                    <img className="image_sub" id="uploaded-img3" src={props.image} alt="image" />
+                    <img className="image_sub" id="uploaded-img3" src={props.image} alt="image1" />
                 </div>
             </div>
         </div>

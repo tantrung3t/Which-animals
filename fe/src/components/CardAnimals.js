@@ -16,7 +16,7 @@ export default function CardAnimals(props) {
                 setCard__info('show_name_animals')
                 setHidden('')
                 flag = 0
-            }, 1500)
+            }, 2500)
         }
         else {
             setLoading('')

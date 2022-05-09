@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter as Router,Route, useParams} from 'react-router-dom'
+import { BrowserRouter as Router,Route, useParams, Link} from 'react-router-dom'
 
 import SearchForm from './components/SearchForm';
 import HomeScreen from './screens/HomeScreen';
@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <header className='header__navbar'>
-        <h3>Động vật quanh ta</h3>
+        <Link className='home' to='/'>Động vật quanh ta</Link>
         <SearchForm />
       </header>
       <main>
